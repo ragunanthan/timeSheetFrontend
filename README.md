@@ -1,30 +1,41 @@
-# React + TypeScript + Vite
+# Time Sheet Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Time Sheet Tracker is a web-based application designed to help users track their work hours and tasks on various projects efficiently.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Introduction](#introduction)
+- [Key Features](#key-features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Expanding the ESLint configuration
+## Introduction
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The Time Sheet Tracker simplifies the process of logging and managing work hours by providing a user-friendly interface where users can record their daily tasks, work types, projects, and hours spent.
 
-- Configure the top-level `parserOptions` property like this:
+## Key Features
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **User Authentication**: Users can register and log in using their email IDs and passwords.
+- **Dashboard**: Upon login, users are directed to a dashboard displaying menu options for easy navigation.
+- **Time Sheet Management**: Users can access the Time Sheet menu to record their daily tasks and hours worked.
+- **Task Entry**: Users can input details such as date, work type, project, and hours spent on each task.
+- **Date Selection**: Users can select the date for which they are entering time sheet information.
+- **Work Type and Project Selection**: Users can choose from predefined lists of work types and projects.
+- **Hour Logging**: Users can enter the number of hours spent on each task with validation.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Technologies Used
+
+- **Frontend**: HTML, CSS, JavaScript (React)
+- **Backend**: Node.js with Express.js
+- **Database**: MongoDB
+- **Authentication**: JWT (JSON Web Tokens)
+- **Deployment**: Hosted on a cloud platform like AWS or Heroku
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/time-sheet-tracker.git
