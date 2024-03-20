@@ -16,8 +16,14 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Expose port (optional, adjust as needed)
-EXPOSE 3000
+# Use NGINX as the web server
+FROM nginx:alpine
 
-# Start the application
-CMD ["npm", "run", "serve"]
+# Copy the built React application from the previous stage into NGINX's HTML directory
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Expose port 80 to the outside world
+EXPOSE 80
+
+# Start NGINX server when the container starts
+CMD ["nginx", "-g", "daemon off;"]
