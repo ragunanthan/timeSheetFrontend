@@ -2,7 +2,7 @@
 FROM node:21-alpine
 
 # Set the working directory inside the container
-WORKDIR /etc/nginx/sites-enabled/timeSheetFrontend
+WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
@@ -20,4 +20,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Start the application
-CMD ["npm", "run", "serve"]
+CMD ["npm", "run", "preview"]
