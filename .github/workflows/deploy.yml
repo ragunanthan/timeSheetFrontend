@@ -23,5 +23,6 @@ jobs:
             git clone https://github.com/ragunanthan/timeSheetFrontend.git
             cd timeSheetFrontend
             ls
+            npm install
             npm run build
             npm run preview
