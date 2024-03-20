@@ -21,7 +21,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+          proxy_key: ${{ secrets.KEY }}
           script: |
             docker stop frontendapp:tag || true
             docker rm frontendapp:tag || true
