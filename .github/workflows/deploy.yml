@@ -16,11 +16,19 @@ jobs:
       - name: Build Docker Image
         run: docker build -t frontendapp:tag .
 
-      - name: SSH Deploy
+      - name: Save Docker Image to Tar
+        run: docker save -o frontendapp.tar frontendapp:tag
+
+      - name: Transfer Docker Image to VM and Run
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            docker run -p 80:3000 frontendapp:tag
+            mkdir -p /tmp/docker_images
+            scp -i $HOME/.ssh/id_rsa -o StrictHostKeyChecking=no frontendapp.tar ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/tmp/docker_images/
+
+            # Connect to VM and load Docker image
+            ssh -i $HOME/.ssh/id_rsa ${{ secrets.USERNAME }}@${{ secrets.HOST }} 'docker load -i /tmp/docker_images/frontendapp.tar'
+            docker run -d -p 80:3000 frontendapp:tag
