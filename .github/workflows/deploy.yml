@@ -23,5 +23,5 @@ jobs:
             git clone https://github.com/ragunanthan/timeSheetFrontend.git
             cd timeSheetFrontend
             ls
-            docker build -t frontendapp:latest .
-            docker run -d -p 3000:3000 frontendapp:latest  -v /etc/nginx/sites-enabled:/app/dist
+            npm run build
+            npm run preview
