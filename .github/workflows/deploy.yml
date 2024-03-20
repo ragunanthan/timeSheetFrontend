@@ -24,4 +24,4 @@ jobs:
             cd timeSheetFrontend
             ls
             docker build -t frontendapp:latest .
-            docker run -d -p 3000:3000 frontendapp:latest  -v /etc/nginx/sites-enabled:/app
+            docker run -d -p 3000:3000 frontendapp:latest  -v /etc/nginx/sites-enabled:/app/dist
