@@ -20,6 +20,9 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            export http_proxy=http://proxy.example.com:3128
+            export https_proxy=http://proxy.example.com:3128
+            export no_proxy=localhost,127.0.0.1,docker.io
             git clone https://github.com/ragunanthan/timeSheetFrontend.git
             cd timeSheetFrontend
             ls
