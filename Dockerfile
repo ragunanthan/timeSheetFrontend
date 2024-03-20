@@ -2,7 +2,7 @@
 FROM node:21-alpine
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /etc/nginx/sites-enabled/timeSheetFrontend
 
 # Copy package files
 COPY package*.json ./
