@@ -22,7 +22,5 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            docker stop frontendapp:tag || true
-            docker rm frontendapp:tag || true
-            docker run -d -p 80:3000 frontendapp:tag
+          script: | 
+          docker run -p 80:3000 frontendapp:tag
