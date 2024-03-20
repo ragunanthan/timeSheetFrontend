@@ -20,11 +20,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            export http_proxy=http://proxy.example.com:3128
-            export https_proxy=http://proxy.example.com:3128
-            export no_proxy=localhost,127.0.0.1,docker.io
             git clone https://github.com/ragunanthan/timeSheetFrontend.git
             cd timeSheetFrontend
             ls
-            docker build -t frontendapp:tag .
-            docker run -d -p 80:3000 frontendapp:tag
+            docker build -t frontendapp:latest .
+            docker run -d -p 80:3000 frontendapp:latest
