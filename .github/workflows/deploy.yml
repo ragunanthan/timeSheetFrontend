@@ -21,5 +21,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             git clone https://github.com/ragunanthan/timeSheetFrontend.git
+            cd timeSheetFrontend
+            ls
             docker build -t frontendapp:tag .
             docker run -d -p 80:3000 frontendapp:tag
