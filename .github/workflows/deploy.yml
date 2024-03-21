@@ -34,4 +34,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-           cp -r /home/ubuntu/frontendapp/. /var/www/html
+           sudo cp -r /home/ubuntu/frontendapp/. /var/www/html
