@@ -25,4 +25,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "."
-          target: /etc/nginx/sites-available
+          target: ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/html/
