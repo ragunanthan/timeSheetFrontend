@@ -17,12 +17,14 @@ jobs:
         run: |
           npm install
           npm run build
-
+      - name: Compress Build Folder
+        run: |
+          tar -czf dist.tar.gz -C ./dist .
       - name: Transfer Docker Image to VM and Run
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: /dist
-          target: /
+          source: ./build.tar.gz
+          target: /frontendapp
