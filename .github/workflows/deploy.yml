@@ -13,6 +13,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Build React Application
+        run: |
+          npm install
+          npm run build
+
       - name: Transfer Docker Image to VM and Run
         uses: appleboy/ssh-action@master
         with:
@@ -20,9 +25,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            git clone https://github.com/ragunanthan/timeSheetFrontend.git
-            cd timeSheetFrontend
-            ls
-            npm install
-            npm run build
-            npm run preview
+             scp -r ./dist ${{ secrets.VM_USERNAME }}@${{ secrets.VM_HOST }}:/
