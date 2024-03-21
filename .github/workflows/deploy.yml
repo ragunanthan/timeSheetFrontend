@@ -27,4 +27,4 @@ jobs:
           source: "."
           target: /home/ubuntu/frontendapp
           script: |
-            sudo cp -r /home/ubuntu/frontendapp/. /var/www/html
+            cp -r /home/ubuntu/frontendapp/. /var/www/html
