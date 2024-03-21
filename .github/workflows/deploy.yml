@@ -25,4 +25,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-             scp -r ./dist ${{ secrets.VM_USERNAME }}@${{ secrets.VM_HOST }}:/
+             scp -r ./dist ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/
