@@ -19,10 +19,10 @@ jobs:
           npm run build
 
       - name: Transfer Docker Image to VM and Run
-        uses: appleboy/ssh-action@master
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-             scp -r ./dist ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/
+          source: /dist
+          target: /
